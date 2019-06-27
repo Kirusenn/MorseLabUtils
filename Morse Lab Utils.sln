@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "molmass", "molmass\molmass.pyproj", "{BA050B97-C878-42B7-B175-3D86C757AE0B}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "menu", "menu\menu.pyproj", "{EDFC9BD3-CCF3-4EDA-874E-8C558C217298}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{BA050B97-C878-42B7-B175-3D86C757AE0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA050B97-C878-42B7-B175-3D86C757AE0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDFC9BD3-CCF3-4EDA-874E-8C558C217298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDFC9BD3-CCF3-4EDA-874E-8C558C217298}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
