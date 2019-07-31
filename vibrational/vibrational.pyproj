@@ -2,15 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>edfc9bd3-ccf3-4eda-874e-8c558c217298</ProjectGuid>
+    <ProjectGuid>499b1c12-ffe4-4e2f-956c-79d7f9c67035</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>menu.py</StartupFile>
+    <StartupFile>vibrational.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>menu</Name>
-    <RootNamespace>menu</RootNamespace>
+    <Name>vibrational</Name>
+    <RootNamespace>vibrational</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,19 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="menu.py" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\molmass\molmass.pyproj">
-      <Name>molmass</Name>
-      <Project>{ba050b97-c878-42b7-b175-3d86c757ae0b}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\vibrational\vibrational.pyproj">
-      <Name>vibrational</Name>
-      <Project>{499b1c12-ffe4-4e2f-956c-79d7f9c67035}</Project>
-      <Private>True</Private>
-    </ProjectReference>
+    <Compile Include="vibrational.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
