@@ -1,4 +1,5 @@
 import molmass as mm
+import vibrational as vib
 
 def main_menu():
     print("\nWhat do you want to do?")
@@ -26,6 +27,16 @@ def mass_anal():
         mass_anal()
     else:
         main_menu()
+
+def vib_anal():
+	"""Compute w' for given paramters"""
+
+	target = input("\nWhat is \u03BD(j)-\u03BD(i)? ")
+	w2 = input("\nWhat is \u03C9''(i)? ")
+	vrange = input("\nWhat range of v' would you like (enter as lower,upper)? ")
+	rho = input("\nWhat is \u03C1(i,j)? ")
+	w1range = input("\nWhat range (in wavenumbers) would you like to try (enter as lower,upper)? ")
+	print(vib.findw1(target, w2, vrange, rho, w1range))
 
 def exit():
     """Exit the program"""
