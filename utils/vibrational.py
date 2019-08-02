@@ -1,16 +1,10 @@
 import numpy as np
 
-target, w2, rho
-
-def get_diff(w1, v1):
-	return w1 * (ro-1) * (v1+0.5) - (w2 * (ro-1) * 0.5)
+def get_diff(w1: float, v1: int, rho: float, w2: float):
+	return w1 * (rho-1) * (v1+0.5) - (w2 * (rho-1) * 0.5)
 
 
-def findw1(target, w2, vrange, rho, w1range):
-	this.target = target
-	this.w2 = w2
-	this.rho = rho
-
+def findw1(target: float, w2: float, vrange: str, rho: float, w1range: str) -> str:
 	vrange = vrange.split(',')
 	w1range = w1range.split(',')
 
@@ -18,14 +12,14 @@ def findw1(target, w2, vrange, rho, w1range):
 
 	for v in range(int(vrange[0]), int(vrange[1])):
 		current_diff = float("inf")
-		w1
+		w1 = None
 
-		for w in np.arange(double(w1range[0]), double(w1range[1]), 0.005):
-			new_diff = abs(target - get_diff(w, v))
+		for w in np.arange(float(w1range[0]), float(w1range[1]), 0.005):
+			new_diff = abs(float(target) - get_diff(float(w), int(v), float(rho), float(w2)))
 		
 			if (new_diff < current_diff):
 				w1 = w
-				this.current_diff = new_diff
+				current_diff = new_diff
 
 		result += f"v={v}:\t\u03C9={w1}\n"
 
