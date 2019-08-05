@@ -12,7 +12,7 @@ def main_menu():
 		try:
 			options[int(choice)]()
 		except (KeyError, ValueError):
-			print("'{}' is an invalid option!\n".format(choice))
+			print("'{}' is an invalid option!".format(choice))
 			choice = None
 
 def mass_anal():
