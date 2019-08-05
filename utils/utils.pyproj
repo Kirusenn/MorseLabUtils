@@ -2,15 +2,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>499b1c12-ffe4-4e2f-956c-79d7f9c67035</ProjectGuid>
+    <ProjectGuid>3ce2d536-df68-46bb-91ba-80e7d993241a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>vibrational.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>vibrational</Name>
-    <RootNamespace>vibrational</RootNamespace>
+    <Name>utils</Name>
+    <RootNamespace>utils</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="elements.py" />
+    <Compile Include="menu.py" />
+    <Compile Include="molmass.py" />
     <Compile Include="vibrational.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
