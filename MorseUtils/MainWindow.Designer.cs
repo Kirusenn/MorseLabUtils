@@ -1,33 +1,28 @@
-﻿namespace MorseUtils
-{
-    partial class vibrationalForm
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+﻿namespace MorseUtils {
+	partial class vibrationalForm {
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing) {
+			if (disposing && (components != null)) {
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent() {
 			this.calculateWorker = new System.ComponentModel.BackgroundWorker();
 			this.tabController = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -52,13 +47,17 @@
 			this.omega2Label = new System.Windows.Forms.Label();
 			this.targetLabel = new System.Windows.Forms.Label();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
+			this.gratingOrder = new System.Windows.Forms.NumericUpDown();
+			this.convertButton = new System.Windows.Forms.Button();
+			this.dyeCounterInput = new System.Windows.Forms.TextBox();
+			this.wavelengthInput = new System.Windows.Forms.TextBox();
+			this.nmInput = new System.Windows.Forms.TextBox();
+			this.cmInput = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
+			this.wavelengthLabel = new System.Windows.Forms.Label();
+			this.nmLabel = new System.Windows.Forms.Label();
+			this.cmLabel = new System.Windows.Forms.Label();
+			this.convertWorker = new System.ComponentModel.BackgroundWorker();
 			this.tabController.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.v1MinInput)).BeginInit();
@@ -67,13 +66,13 @@
 			((System.ComponentModel.ISupportInitialize)(this.incrementInput)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.omega1MaxInput)).BeginInit();
 			this.tabPage2.SuspendLayout();
-			this.tableLayoutPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.gratingOrder)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// calculateWorker
 			// 
 			this.calculateWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.calculateWorker_DoWork);
-			this.calculateWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorker1_RunWorkerCompleted);
+			this.calculateWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.calculateWorker_RunWorkerCompleted);
 			// 
 			// tabController
 			// 
@@ -115,7 +114,7 @@
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage1.Size = new System.Drawing.Size(792, 424);
 			this.tabPage1.TabIndex = 0;
-			this.tabPage1.Text = "Vibrational Calculations";
+			this.tabPage1.Text = "Vibrational";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
 			// calculateButton
@@ -147,31 +146,33 @@
 			this.v1MinInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.v1MinInput.Location = new System.Drawing.Point(105, 140);
 			this.v1MinInput.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
+			20,
+			0,
+			0,
+			0});
 			this.v1MinInput.Name = "v1MinInput";
 			this.v1MinInput.Size = new System.Drawing.Size(47, 32);
 			this.v1MinInput.TabIndex = 30;
+			this.v1MinInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// v1MaxInput
 			// 
 			this.v1MaxInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.v1MaxInput.Location = new System.Drawing.Point(158, 140);
 			this.v1MaxInput.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
+			20,
+			0,
+			0,
+			0});
 			this.v1MaxInput.Name = "v1MaxInput";
 			this.v1MaxInput.Size = new System.Drawing.Size(47, 32);
 			this.v1MaxInput.TabIndex = 32;
+			this.v1MaxInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.v1MaxInput.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+			5,
+			0,
+			0,
+			0});
 			// 
 			// omega1MinInput
 			// 
@@ -179,10 +180,10 @@
 			this.omega1MinInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.omega1MinInput.Location = new System.Drawing.Point(105, 191);
 			this.omega1MinInput.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
+			10000,
+			0,
+			0,
+			0});
 			this.omega1MinInput.Name = "omega1MinInput";
 			this.omega1MinInput.Size = new System.Drawing.Size(130, 32);
 			this.omega1MinInput.TabIndex = 34;
@@ -193,23 +194,23 @@
 			this.incrementInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.incrementInput.Location = new System.Drawing.Point(120, 242);
 			this.incrementInput.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
+			50,
+			0,
+			0,
+			0});
 			this.incrementInput.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            196608});
+			1,
+			0,
+			0,
+			196608});
 			this.incrementInput.Name = "incrementInput";
 			this.incrementInput.Size = new System.Drawing.Size(100, 32);
 			this.incrementInput.TabIndex = 36;
 			this.incrementInput.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            131072});
+			5,
+			0,
+			0,
+			131072});
 			// 
 			// omega1IncLabel
 			// 
@@ -245,18 +246,18 @@
 			this.omega1MaxInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.omega1MaxInput.Location = new System.Drawing.Point(241, 191);
 			this.omega1MaxInput.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
+			10000,
+			0,
+			0,
+			0});
 			this.omega1MaxInput.Name = "omega1MaxInput";
 			this.omega1MaxInput.Size = new System.Drawing.Size(130, 32);
 			this.omega1MaxInput.TabIndex = 35;
 			this.omega1MaxInput.Value = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            0});
+			5000,
+			0,
+			0,
+			0});
 			// 
 			// max1Label
 			// 
@@ -352,113 +353,134 @@
 			// 
 			// tabPage2
 			// 
-			this.tabPage2.Controls.Add(this.tableLayoutPanel1);
+			this.tabPage2.Controls.Add(this.gratingOrder);
+			this.tabPage2.Controls.Add(this.convertButton);
+			this.tabPage2.Controls.Add(this.dyeCounterInput);
+			this.tabPage2.Controls.Add(this.wavelengthInput);
+			this.tabPage2.Controls.Add(this.nmInput);
+			this.tabPage2.Controls.Add(this.cmInput);
+			this.tabPage2.Controls.Add(this.label4);
+			this.tabPage2.Controls.Add(this.wavelengthLabel);
+			this.tabPage2.Controls.Add(this.nmLabel);
+			this.tabPage2.Controls.Add(this.cmLabel);
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage2.Size = new System.Drawing.Size(792, 424);
 			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "tabPage2";
+			this.tabPage2.Text = "Conversions";
 			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
-			// tableLayoutPanel1
+			// gratingOrder
 			// 
-			this.tableLayoutPanel1.AutoScroll = true;
-			this.tableLayoutPanel1.AutoSize = true;
-			this.tableLayoutPanel1.ColumnCount = 4;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Controls.Add(this.label6, 0, 2);
-			this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
-			this.tableLayoutPanel1.Controls.Add(this.label4, 2, 1);
-			this.tableLayoutPanel1.Controls.Add(this.label5, 2, 2);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 3;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 192F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(786, 418);
-			this.tableLayoutPanel1.TabIndex = 0;
+			this.gratingOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.gratingOrder.Location = new System.Drawing.Point(170, 241);
+			this.gratingOrder.Maximum = new decimal(new int[] {
+			6,
+			0,
+			0,
+			0});
+			this.gratingOrder.Minimum = new decimal(new int[] {
+			3,
+			0,
+			0,
+			0});
+			this.gratingOrder.Name = "gratingOrder";
+			this.gratingOrder.Size = new System.Drawing.Size(47, 32);
+			this.gratingOrder.TabIndex = 39;
+			this.gratingOrder.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.gratingOrder.Value = new decimal(new int[] {
+			5,
+			0,
+			0,
+			0});
 			// 
-			// label1
+			// convertButton
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(3, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(230, 113);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "cm-1";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.convertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.convertButton.Location = new System.Drawing.Point(308, 382);
+			this.convertButton.Name = "convertButton";
+			this.convertButton.Size = new System.Drawing.Size(100, 34);
+			this.convertButton.TabIndex = 38;
+			this.convertButton.Text = "Convert";
+			this.convertButton.UseVisualStyleBackColor = true;
 			// 
-			// label2
+			// dyeCounterInput
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(3, 113);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(230, 113);
-			this.label2.TabIndex = 1;
-			this.label2.Text = "nm";
-			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.dyeCounterInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dyeCounterInput.Location = new System.Drawing.Point(223, 240);
+			this.dyeCounterInput.Name = "dyeCounterInput";
+			this.dyeCounterInput.Size = new System.Drawing.Size(100, 32);
+			this.dyeCounterInput.TabIndex = 32;
 			// 
-			// label3
+			// wavelengthInput
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(388, 0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(158, 113);
-			this.label3.TabIndex = 2;
-			this.label3.Text = "cm-1";
-			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.wavelengthInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.wavelengthInput.Location = new System.Drawing.Point(59, 161);
+			this.wavelengthInput.Name = "wavelengthInput";
+			this.wavelengthInput.Size = new System.Drawing.Size(100, 32);
+			this.wavelengthInput.TabIndex = 31;
+			// 
+			// nmInput
+			// 
+			this.nmInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.nmInput.Location = new System.Drawing.Point(79, 94);
+			this.nmInput.Name = "nmInput";
+			this.nmInput.Size = new System.Drawing.Size(100, 32);
+			this.nmInput.TabIndex = 30;
+			// 
+			// cmInput
+			// 
+			this.cmInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cmInput.Location = new System.Drawing.Point(92, 24);
+			this.cmInput.Name = "cmInput";
+			this.cmInput.Size = new System.Drawing.Size(100, 32);
+			this.cmInput.TabIndex = 29;
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(388, 113);
+			this.label4.Location = new System.Drawing.Point(24, 243);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(158, 113);
-			this.label4.TabIndex = 3;
-			this.label4.Text = "cm-1";
-			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.label4.Size = new System.Drawing.Size(140, 26);
+			this.label4.TabIndex = 28;
+			this.label4.Text = "Dye Counter:";
 			// 
-			// label5
+			// wavelengthLabel
 			// 
-			this.label5.AutoSize = true;
-			this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(388, 226);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(158, 192);
-			this.label5.TabIndex = 4;
-			this.label5.Text = "cm-1";
-			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.wavelengthLabel.AutoSize = true;
+			this.wavelengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.wavelengthLabel.Location = new System.Drawing.Point(24, 164);
+			this.wavelengthLabel.Name = "wavelengthLabel";
+			this.wavelengthLabel.Size = new System.Drawing.Size(29, 26);
+			this.wavelengthLabel.TabIndex = 27;
+			this.wavelengthLabel.Text = "λ:";
 			// 
-			// label6
+			// nmLabel
 			// 
-			this.label6.AutoSize = true;
-			this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(3, 226);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(230, 192);
-			this.label6.TabIndex = 5;
-			this.label6.Text = "eV";
-			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.nmLabel.AutoSize = true;
+			this.nmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.nmLabel.Location = new System.Drawing.Point(24, 97);
+			this.nmLabel.Name = "nmLabel";
+			this.nmLabel.Size = new System.Drawing.Size(49, 26);
+			this.nmLabel.TabIndex = 26;
+			this.nmLabel.Text = "nm:";
+			// 
+			// cmLabel
+			// 
+			this.cmLabel.AutoSize = true;
+			this.cmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cmLabel.Location = new System.Drawing.Point(24, 27);
+			this.cmLabel.Name = "cmLabel";
+			this.cmLabel.Size = new System.Drawing.Size(62, 26);
+			this.cmLabel.TabIndex = 25;
+			this.cmLabel.Text = "cm⁻¹:";
+			// 
+			// convertWorker
+			// 
+			this.convertWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.convertWorker_DoWork);
+			this.convertWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.convertWorker_RunWorkerCompleted);
 			// 
 			// vibrationalForm
 			// 
@@ -480,13 +502,12 @@
 			((System.ComponentModel.ISupportInitialize)(this.omega1MaxInput)).EndInit();
 			this.tabPage2.ResumeLayout(false);
 			this.tabPage2.PerformLayout();
-			this.tableLayoutPanel1.ResumeLayout(false);
-			this.tableLayoutPanel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.gratingOrder)).EndInit();
 			this.ResumeLayout(false);
 
-        }
+		}
 
-        #endregion
+		#endregion
 		private System.ComponentModel.BackgroundWorker calculateWorker;
 		private System.Windows.Forms.TabControl tabController;
 		private System.Windows.Forms.TabPage tabPage1;
@@ -511,13 +532,17 @@
 		private System.Windows.Forms.Label omega2Label;
 		private System.Windows.Forms.Label targetLabel;
 		private System.Windows.Forms.TabPage tabPage2;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label wavelengthLabel;
+		private System.Windows.Forms.Label nmLabel;
+		private System.Windows.Forms.Label cmLabel;
+		private System.Windows.Forms.Button convertButton;
+		private System.Windows.Forms.TextBox dyeCounterInput;
+		private System.Windows.Forms.TextBox wavelengthInput;
+		private System.Windows.Forms.TextBox nmInput;
+		private System.Windows.Forms.TextBox cmInput;
+		private System.Windows.Forms.NumericUpDown gratingOrder;
+		private System.ComponentModel.BackgroundWorker convertWorker;
 	}
 }
 

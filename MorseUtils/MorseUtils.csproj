@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converter.cs" />
     <Compile Include="VibrationalCalculator.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>

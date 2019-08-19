@@ -33,7 +33,7 @@ namespace MorseUtils {
 			Task.WaitAll(tasks);
 
 			StringBuilder results = new StringBuilder();
-			foreach(KeyValuePair<int, double> result in vResults) {
+			foreach (KeyValuePair<int, double> result in vResults) {
 				results.AppendLine(("v=" + $"{result.Key}:".PadLeft(3)).PadRight(7) + $"{result.Value}cm-1");
 			}
 			return results.ToString();

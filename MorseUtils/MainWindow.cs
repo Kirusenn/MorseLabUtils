@@ -6,10 +6,15 @@ using System.Windows.Forms;
 namespace MorseUtils {
 	public partial class vibrationalForm : Form {
 		private VibrationalCalculator vibCalc;
+		private List<TextBox> convertBoxes;
 
 		public vibrationalForm() {
 			InitializeComponent();
-			AcceptButton = calculateButton;	//	Default
+			AcceptButton = calculateButton; //	Default
+			convertBoxes = new List<TextBox>() { cmInput, nmInput, wavelengthInput, dyeCounterInput };
+			foreach (TextBox box in convertBoxes) {
+				//	TODO: subscribe all boxes to change events
+			}
 		}
 
 		///	<summary>
@@ -18,9 +23,9 @@ namespace MorseUtils {
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void CalculateButton_Click(object sender, System.EventArgs e) {
+			//	Add all textbox values to List for passing to BackgroundWorker (to avoid thread issues)
 			List<object> inputs = new List<object>();
 
-			//	Add all textbox values to List for passing to BackgroundWorker (to avoid thread issues)
 			//	TODO: ensure only numbers are entered
 			inputs.Add(double.Parse(targetInput.Text));
 			inputs.Add((double.Parse(omega2Input.Text)));
@@ -30,7 +35,7 @@ namespace MorseUtils {
 			inputs.Add((int)v1MinInput.Value);
 			inputs.Add((int)v1MaxInput.Value);
 			inputs.Add((double)incrementInput.Value);
-			
+
 			calculateWorker.RunWorkerAsync(inputs);
 		}
 
@@ -39,7 +44,7 @@ namespace MorseUtils {
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.ComponentModel.DoWorkEventArgs"/> instance containing the event data.</param>
-		private void calculateWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e) {
+		private void calculateWorker_DoWork(object sender, DoWorkEventArgs e) {
 			List<object> inputs = e.Argument as List<object>;
 			//	Pass textbox values to VibCalc by extracting from passed List
 			vibCalc = new VibrationalCalculator((double)inputs[0], (double)inputs[1], (double)inputs[2], (double)inputs[3], (double)inputs[4], (int)inputs[5], (int)inputs[6]);
@@ -47,8 +52,23 @@ namespace MorseUtils {
 			e.Result = vibCalc.Calculate((double)inputs[7]);
 		}
 
-		private void BackgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
+		private void calculateWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
 			resultsLabel.Text = e.Result.ToString();
+		}
+
+		private void convertBox_Changed(object sender, System.EventArgs e) {
+			//	TODO: determine sender (TextBox) and convert appropriately
+		}
+
+		private void convertWorker_DoWork(object sender, DoWorkEventArgs e) {
+			//	TODO: have this run converter
+		}
+
+		private void convertWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
+			Dictionary<TextBox, double> results = e.Result as Dictionary<TextBox, double>;
+			foreach (KeyValuePair<TextBox, double> result in results) {
+				result.Key.Text = result.Value.ToString();
+			}
 		}
 
 		/// <summary>
@@ -60,6 +80,9 @@ namespace MorseUtils {
 			switch (tabController.SelectedIndex) {
 				case 0:
 					AcceptButton = calculateButton;
+					break;
+				case 1:
+					AcceptButton = convertButton;
 					break;
 			}
 		}
