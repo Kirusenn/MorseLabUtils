@@ -12,7 +12,7 @@ namespace MorseUtils {
 		private static SemaphoreSlim threadPool = new SemaphoreSlim(1, maxThreads);
 
 		public VibrationalCalculator(double target, double omega2, double rho, double omega1Min, double omega1Max, int vMin, int vMax) {
-			VibrationalCalculator.target = target;
+			VibrationalCalculator.target = Math.Abs(target);
 			VibrationalCalculator.omega2 = omega2;
 			VibrationalCalculator.rho = rho;
 			VibrationalCalculator.omega1Min = omega1Min;
@@ -34,7 +34,7 @@ namespace MorseUtils {
 
 			StringBuilder results = new StringBuilder();
 			foreach (KeyValuePair<int, double> result in vResults) {
-				results.AppendLine(("v=" + $"{result.Key}:".PadLeft(3)).PadRight(7) + $"{result.Value}cm-1");
+				results.AppendLine(("v=" + $"{result.Key}:".PadLeft(3)).PadRight(7) + $"{Math.Round(result.Value, 3)}cm-1");
 			}
 			return results.ToString();
 		}
@@ -47,7 +47,7 @@ namespace MorseUtils {
 			double bestOmega = double.MaxValue;
 
 			for (double omega = omega1Min; omega <= omega1Max; omega += increment) {
-				double newDiff = Math.Abs(target - GetDiff(omega, v));
+				double newDiff = Math.Abs(-target - GetDiff(omega, v));
 
 				if (newDiff < currentDiff) {
 					bestOmega = omega;

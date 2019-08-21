@@ -11,7 +11,7 @@ namespace MorseUtils {
 		public vibrationalForm() {
 			InitializeComponent();
 			AcceptButton = calculateButton; //	Default
-			convertBoxes = new List<TextBox>() { cmInput, nmInput, wavelengthInput, dyeCounterInput };
+			convertBoxes = new List<TextBox>() { cmInput, nmInput, freqInput, dyeCounterInput };
 			foreach (TextBox box in convertBoxes) {
 				//	TODO: subscribe all boxes to change events
 			}

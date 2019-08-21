@@ -50,11 +50,11 @@
 			this.gratingOrder = new System.Windows.Forms.NumericUpDown();
 			this.convertButton = new System.Windows.Forms.Button();
 			this.dyeCounterInput = new System.Windows.Forms.TextBox();
-			this.wavelengthInput = new System.Windows.Forms.TextBox();
+			this.freqInput = new System.Windows.Forms.TextBox();
 			this.nmInput = new System.Windows.Forms.TextBox();
 			this.cmInput = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
-			this.wavelengthLabel = new System.Windows.Forms.Label();
+			this.freqLabel = new System.Windows.Forms.Label();
 			this.nmLabel = new System.Windows.Forms.Label();
 			this.cmLabel = new System.Windows.Forms.Label();
 			this.convertWorker = new System.ComponentModel.BackgroundWorker();
@@ -146,10 +146,10 @@
 			this.v1MinInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.v1MinInput.Location = new System.Drawing.Point(105, 140);
 			this.v1MinInput.Maximum = new decimal(new int[] {
-			20,
-			0,
-			0,
-			0});
+            20,
+            0,
+            0,
+            0});
 			this.v1MinInput.Name = "v1MinInput";
 			this.v1MinInput.Size = new System.Drawing.Size(47, 32);
 			this.v1MinInput.TabIndex = 30;
@@ -160,19 +160,19 @@
 			this.v1MaxInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.v1MaxInput.Location = new System.Drawing.Point(158, 140);
 			this.v1MaxInput.Maximum = new decimal(new int[] {
-			20,
-			0,
-			0,
-			0});
+            20,
+            0,
+            0,
+            0});
 			this.v1MaxInput.Name = "v1MaxInput";
 			this.v1MaxInput.Size = new System.Drawing.Size(47, 32);
 			this.v1MaxInput.TabIndex = 32;
 			this.v1MaxInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.v1MaxInput.Value = new decimal(new int[] {
-			5,
-			0,
-			0,
-			0});
+            5,
+            0,
+            0,
+            0});
 			// 
 			// omega1MinInput
 			// 
@@ -180,10 +180,10 @@
 			this.omega1MinInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.omega1MinInput.Location = new System.Drawing.Point(105, 191);
 			this.omega1MinInput.Maximum = new decimal(new int[] {
-			10000,
-			0,
-			0,
-			0});
+            10000,
+            0,
+            0,
+            0});
 			this.omega1MinInput.Name = "omega1MinInput";
 			this.omega1MinInput.Size = new System.Drawing.Size(130, 32);
 			this.omega1MinInput.TabIndex = 34;
@@ -194,23 +194,23 @@
 			this.incrementInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.incrementInput.Location = new System.Drawing.Point(120, 242);
 			this.incrementInput.Maximum = new decimal(new int[] {
-			50,
-			0,
-			0,
-			0});
+            50,
+            0,
+            0,
+            0});
 			this.incrementInput.Minimum = new decimal(new int[] {
-			1,
-			0,
-			0,
-			196608});
+            1,
+            0,
+            0,
+            196608});
 			this.incrementInput.Name = "incrementInput";
 			this.incrementInput.Size = new System.Drawing.Size(100, 32);
 			this.incrementInput.TabIndex = 36;
 			this.incrementInput.Value = new decimal(new int[] {
-			5,
-			0,
-			0,
-			131072});
+            5,
+            0,
+            0,
+            131072});
 			// 
 			// omega1IncLabel
 			// 
@@ -246,18 +246,18 @@
 			this.omega1MaxInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.omega1MaxInput.Location = new System.Drawing.Point(241, 191);
 			this.omega1MaxInput.Maximum = new decimal(new int[] {
-			10000,
-			0,
-			0,
-			0});
+            10000,
+            0,
+            0,
+            0});
 			this.omega1MaxInput.Name = "omega1MaxInput";
 			this.omega1MaxInput.Size = new System.Drawing.Size(130, 32);
 			this.omega1MaxInput.TabIndex = 35;
 			this.omega1MaxInput.Value = new decimal(new int[] {
-			5000,
-			0,
-			0,
-			0});
+            5000,
+            0,
+            0,
+            0});
 			// 
 			// max1Label
 			// 
@@ -356,11 +356,11 @@
 			this.tabPage2.Controls.Add(this.gratingOrder);
 			this.tabPage2.Controls.Add(this.convertButton);
 			this.tabPage2.Controls.Add(this.dyeCounterInput);
-			this.tabPage2.Controls.Add(this.wavelengthInput);
+			this.tabPage2.Controls.Add(this.freqInput);
 			this.tabPage2.Controls.Add(this.nmInput);
 			this.tabPage2.Controls.Add(this.cmInput);
 			this.tabPage2.Controls.Add(this.label4);
-			this.tabPage2.Controls.Add(this.wavelengthLabel);
+			this.tabPage2.Controls.Add(this.freqLabel);
 			this.tabPage2.Controls.Add(this.nmLabel);
 			this.tabPage2.Controls.Add(this.cmLabel);
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -376,29 +376,30 @@
 			this.gratingOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.gratingOrder.Location = new System.Drawing.Point(170, 241);
 			this.gratingOrder.Maximum = new decimal(new int[] {
-			6,
-			0,
-			0,
-			0});
+            6,
+            0,
+            0,
+            0});
 			this.gratingOrder.Minimum = new decimal(new int[] {
-			3,
-			0,
-			0,
-			0});
+            3,
+            0,
+            0,
+            0});
 			this.gratingOrder.Name = "gratingOrder";
 			this.gratingOrder.Size = new System.Drawing.Size(47, 32);
 			this.gratingOrder.TabIndex = 39;
 			this.gratingOrder.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.gratingOrder.Value = new decimal(new int[] {
-			5,
-			0,
-			0,
-			0});
+            5,
+            0,
+            0,
+            0});
 			// 
 			// convertButton
 			// 
+			this.convertButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.convertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.convertButton.Location = new System.Drawing.Point(308, 382);
+			this.convertButton.Location = new System.Drawing.Point(346, 382);
 			this.convertButton.Name = "convertButton";
 			this.convertButton.Size = new System.Drawing.Size(100, 34);
 			this.convertButton.TabIndex = 38;
@@ -413,13 +414,13 @@
 			this.dyeCounterInput.Size = new System.Drawing.Size(100, 32);
 			this.dyeCounterInput.TabIndex = 32;
 			// 
-			// wavelengthInput
+			// freqInput
 			// 
-			this.wavelengthInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.wavelengthInput.Location = new System.Drawing.Point(59, 161);
-			this.wavelengthInput.Name = "wavelengthInput";
-			this.wavelengthInput.Size = new System.Drawing.Size(100, 32);
-			this.wavelengthInput.TabIndex = 31;
+			this.freqInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.freqInput.Location = new System.Drawing.Point(150, 161);
+			this.freqInput.Name = "freqInput";
+			this.freqInput.Size = new System.Drawing.Size(100, 32);
+			this.freqInput.TabIndex = 31;
 			// 
 			// nmInput
 			// 
@@ -447,15 +448,15 @@
 			this.label4.TabIndex = 28;
 			this.label4.Text = "Dye Counter:";
 			// 
-			// wavelengthLabel
+			// freqLabel
 			// 
-			this.wavelengthLabel.AutoSize = true;
-			this.wavelengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.wavelengthLabel.Location = new System.Drawing.Point(24, 164);
-			this.wavelengthLabel.Name = "wavelengthLabel";
-			this.wavelengthLabel.Size = new System.Drawing.Size(29, 26);
-			this.wavelengthLabel.TabIndex = 27;
-			this.wavelengthLabel.Text = "λ:";
+			this.freqLabel.AutoSize = true;
+			this.freqLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.freqLabel.Location = new System.Drawing.Point(24, 164);
+			this.freqLabel.Name = "freqLabel";
+			this.freqLabel.Size = new System.Drawing.Size(120, 26);
+			this.freqLabel.TabIndex = 27;
+			this.freqLabel.Text = "Frequency:";
 			// 
 			// nmLabel
 			// 
@@ -487,10 +488,10 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
-			this.AutoSize = true;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.tabController);
 			this.Name = "vibrationalForm";
+			this.ShowIcon = false;
 			this.Text = "Vibrational Utility";
 			this.tabController.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
@@ -533,12 +534,12 @@
 		private System.Windows.Forms.Label targetLabel;
 		private System.Windows.Forms.TabPage tabPage2;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label wavelengthLabel;
+		private System.Windows.Forms.Label freqLabel;
 		private System.Windows.Forms.Label nmLabel;
 		private System.Windows.Forms.Label cmLabel;
 		private System.Windows.Forms.Button convertButton;
 		private System.Windows.Forms.TextBox dyeCounterInput;
-		private System.Windows.Forms.TextBox wavelengthInput;
+		private System.Windows.Forms.TextBox freqInput;
 		private System.Windows.Forms.TextBox nmInput;
 		private System.Windows.Forms.TextBox cmInput;
 		private System.Windows.Forms.NumericUpDown gratingOrder;
