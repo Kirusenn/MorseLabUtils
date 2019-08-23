@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -7,13 +8,14 @@ namespace MorseUtils {
 	public partial class vibrationalForm : Form {
 		private VibrationalCalculator vibCalc;
 		private List<TextBox> convertBoxes;
+		private double energy;
 
 		public vibrationalForm() {
 			InitializeComponent();
 			AcceptButton = calculateButton; //	Default
-			convertBoxes = new List<TextBox>() { cmInput, nmInput, freqInput, dyeCounterInput };
+			convertBoxes = new List<TextBox>() { mjInput, nmInput, cmInput, eVInput, freqInput, kcalInput, dyeCounterInput };
 			foreach (TextBox box in convertBoxes) {
-				//	TODO: subscribe all boxes to change events
+				box.LostFocus += convertBox_Changed;
 			}
 		}
 
@@ -26,15 +28,24 @@ namespace MorseUtils {
 			//	Add all textbox values to List for passing to BackgroundWorker (to avoid thread issues)
 			List<object> inputs = new List<object>();
 
-			//	TODO: ensure only numbers are entered
-			inputs.Add(double.Parse(targetInput.Text));
-			inputs.Add((double.Parse(omega2Input.Text)));
-			inputs.Add((double.Parse(rhoInput.Text)));
-			inputs.Add((double)omega1MinInput.Value);
-			inputs.Add((double)omega1MaxInput.Value);
-			inputs.Add((int)v1MinInput.Value);
-			inputs.Add((int)v1MaxInput.Value);
-			inputs.Add((double)incrementInput.Value);
+			try {
+				inputs.Add(double.Parse(targetInput.Text));
+				inputs.Add((double.Parse(omega2Input.Text)));
+				inputs.Add((double.Parse(rhoInput.Text)));
+				inputs.Add((double)omega1MinInput.Value);
+				inputs.Add((double)omega1MaxInput.Value);
+				inputs.Add((int)v1MinInput.Value);
+				inputs.Add((int)v1MaxInput.Value);
+				inputs.Add((double)incrementInput.Value);
+			} catch (Exception exc) {
+				if (exc is FormatException) {
+					MessageBox.Show("Make sure to only enter numbers!");
+				} else if (exc is NullReferenceException) {
+					MessageBox.Show("Make sure to enter all values!");
+				} else {
+					MessageBox.Show(exc.Message);
+				}
+			}
 
 			calculateWorker.RunWorkerAsync(inputs);
 		}
@@ -52,16 +63,42 @@ namespace MorseUtils {
 			e.Result = vibCalc.Calculate((double)inputs[7]);
 		}
 
+		/// <summary>
+		/// Runs when vibrational calculations are done; displays results.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void calculateWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
 			resultsLabel.Text = e.Result.ToString();
 		}
 
 		private void convertBox_Changed(object sender, System.EventArgs e) {
-			//	TODO: determine sender (TextBox) and convert appropriately
+			TextBox senderBox = sender as TextBox;
+			int senderIndex = convertBoxes.FindIndex(b => b.Name.Equals(senderBox.Name));
+			List<double> boxValues = new List<double>();
+
+			try {
+				foreach (TextBox box in convertBoxes) {
+					boxValues.Add(double.Parse(box.Text));
+
+					convertWorker.RunWorkerAsync(new Tuple<int, List<double>(senderIndex, boxValues));
+				}
+			} catch (Exception exc) {
+				if (exc is FormatException) {
+					MessageBox.Show("Make sure to only enter numbers!");
+					senderBox.Text = "";
+				} else if (exc is NullReferenceException) {
+					MessageBox.Show("Please enter a number!");
+					senderBox.Text = "";
+				} else {
+					MessageBox.Show(exc.Message);
+				}
+			}
 		}
 
 		private void convertWorker_DoWork(object sender, DoWorkEventArgs e) {
-			//	TODO: have this run converter
+			Tuple<int, List<double>> args = e.Argument as Tuple<int, List<double>>;
+			e.Result = Converter.Convert(args.Item1, args.Item2);
 		}
 
 		private void convertWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {

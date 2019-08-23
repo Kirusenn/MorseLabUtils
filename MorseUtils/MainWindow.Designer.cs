@@ -58,6 +58,12 @@
 			this.nmLabel = new System.Windows.Forms.Label();
 			this.cmLabel = new System.Windows.Forms.Label();
 			this.convertWorker = new System.ComponentModel.BackgroundWorker();
+			this.mjLabel = new System.Windows.Forms.Label();
+			this.evLabel = new System.Windows.Forms.Label();
+			this.kcalLabel = new System.Windows.Forms.Label();
+			this.mjInput = new System.Windows.Forms.TextBox();
+			this.eVInput = new System.Windows.Forms.TextBox();
+			this.kcalInput = new System.Windows.Forms.TextBox();
 			this.tabController.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.v1MinInput)).BeginInit();
@@ -123,7 +129,7 @@
 			this.calculateButton.Location = new System.Drawing.Point(105, 364);
 			this.calculateButton.Name = "calculateButton";
 			this.calculateButton.Size = new System.Drawing.Size(100, 34);
-			this.calculateButton.TabIndex = 37;
+			this.calculateButton.TabIndex = 8;
 			this.calculateButton.Text = "Calculate";
 			this.calculateButton.UseVisualStyleBackColor = true;
 			this.calculateButton.Click += new System.EventHandler(this.CalculateButton_Click);
@@ -152,7 +158,7 @@
             0});
 			this.v1MinInput.Name = "v1MinInput";
 			this.v1MinInput.Size = new System.Drawing.Size(47, 32);
-			this.v1MinInput.TabIndex = 30;
+			this.v1MinInput.TabIndex = 3;
 			this.v1MinInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// v1MaxInput
@@ -166,7 +172,7 @@
             0});
 			this.v1MaxInput.Name = "v1MaxInput";
 			this.v1MaxInput.Size = new System.Drawing.Size(47, 32);
-			this.v1MaxInput.TabIndex = 32;
+			this.v1MaxInput.TabIndex = 4;
 			this.v1MaxInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.v1MaxInput.Value = new decimal(new int[] {
             5,
@@ -186,13 +192,13 @@
             0});
 			this.omega1MinInput.Name = "omega1MinInput";
 			this.omega1MinInput.Size = new System.Drawing.Size(130, 32);
-			this.omega1MinInput.TabIndex = 34;
+			this.omega1MinInput.TabIndex = 5;
 			// 
 			// incrementInput
 			// 
 			this.incrementInput.DecimalPlaces = 3;
 			this.incrementInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.incrementInput.Location = new System.Drawing.Point(120, 242);
+			this.incrementInput.Location = new System.Drawing.Point(105, 242);
 			this.incrementInput.Maximum = new decimal(new int[] {
             50,
             0,
@@ -205,7 +211,7 @@
             196608});
 			this.incrementInput.Name = "incrementInput";
 			this.incrementInput.Size = new System.Drawing.Size(100, 32);
-			this.incrementInput.TabIndex = 36;
+			this.incrementInput.TabIndex = 7;
 			this.incrementInput.Value = new decimal(new int[] {
             5,
             0,
@@ -216,7 +222,7 @@
 			// 
 			this.omega1IncLabel.AutoSize = true;
 			this.omega1IncLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.omega1IncLabel.Location = new System.Drawing.Point(103, 277);
+			this.omega1IncLabel.Location = new System.Drawing.Point(88, 277);
 			this.omega1IncLabel.Name = "omega1IncLabel";
 			this.omega1IncLabel.Size = new System.Drawing.Size(133, 26);
 			this.omega1IncLabel.TabIndex = 42;
@@ -252,7 +258,7 @@
             0});
 			this.omega1MaxInput.Name = "omega1MaxInput";
 			this.omega1MaxInput.Size = new System.Drawing.Size(130, 32);
-			this.omega1MaxInput.TabIndex = 35;
+			this.omega1MaxInput.TabIndex = 6;
 			this.omega1MaxInput.Value = new decimal(new int[] {
             5000,
             0,
@@ -283,7 +289,7 @@
 			this.rhoInput.Location = new System.Drawing.Point(105, 102);
 			this.rhoInput.Name = "rhoInput";
 			this.rhoInput.Size = new System.Drawing.Size(100, 32);
-			this.rhoInput.TabIndex = 29;
+			this.rhoInput.TabIndex = 2;
 			// 
 			// omega2Input
 			// 
@@ -291,7 +297,7 @@
 			this.omega2Input.Location = new System.Drawing.Point(105, 64);
 			this.omega2Input.Name = "omega2Input";
 			this.omega2Input.Size = new System.Drawing.Size(100, 32);
-			this.omega2Input.TabIndex = 26;
+			this.omega2Input.TabIndex = 1;
 			// 
 			// targetInput
 			// 
@@ -299,7 +305,7 @@
 			this.targetInput.Location = new System.Drawing.Point(105, 26);
 			this.targetInput.Name = "targetInput";
 			this.targetInput.Size = new System.Drawing.Size(100, 32);
-			this.targetInput.TabIndex = 25;
+			this.targetInput.TabIndex = 0;
 			// 
 			// omega1RangeLabel
 			// 
@@ -315,7 +321,7 @@
 			// 
 			this.v1RangeLabel.AutoSize = true;
 			this.v1RangeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.v1RangeLabel.Location = new System.Drawing.Point(5, 146);
+			this.v1RangeLabel.Location = new System.Drawing.Point(5, 142);
 			this.v1RangeLabel.Name = "v1RangeLabel";
 			this.v1RangeLabel.Size = new System.Drawing.Size(94, 26);
 			this.v1RangeLabel.TabIndex = 31;
@@ -325,7 +331,7 @@
 			// 
 			this.rhoLabel.AutoSize = true;
 			this.rhoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.rhoLabel.Location = new System.Drawing.Point(38, 108);
+			this.rhoLabel.Location = new System.Drawing.Point(38, 105);
 			this.rhoLabel.Name = "rhoLabel";
 			this.rhoLabel.Size = new System.Drawing.Size(61, 26);
 			this.rhoLabel.TabIndex = 28;
@@ -335,7 +341,7 @@
 			// 
 			this.omega2Label.AutoSize = true;
 			this.omega2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.omega2Label.Location = new System.Drawing.Point(39, 70);
+			this.omega2Label.Location = new System.Drawing.Point(39, 67);
 			this.omega2Label.Name = "omega2Label";
 			this.omega2Label.Size = new System.Drawing.Size(60, 26);
 			this.omega2Label.TabIndex = 27;
@@ -345,7 +351,7 @@
 			// 
 			this.targetLabel.AutoSize = true;
 			this.targetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.targetLabel.Location = new System.Drawing.Point(14, 32);
+			this.targetLabel.Location = new System.Drawing.Point(14, 29);
 			this.targetLabel.Name = "targetLabel";
 			this.targetLabel.Size = new System.Drawing.Size(85, 26);
 			this.targetLabel.TabIndex = 24;
@@ -353,6 +359,12 @@
 			// 
 			// tabPage2
 			// 
+			this.tabPage2.Controls.Add(this.kcalInput);
+			this.tabPage2.Controls.Add(this.eVInput);
+			this.tabPage2.Controls.Add(this.mjInput);
+			this.tabPage2.Controls.Add(this.kcalLabel);
+			this.tabPage2.Controls.Add(this.evLabel);
+			this.tabPage2.Controls.Add(this.mjLabel);
 			this.tabPage2.Controls.Add(this.gratingOrder);
 			this.tabPage2.Controls.Add(this.convertButton);
 			this.tabPage2.Controls.Add(this.dyeCounterInput);
@@ -374,7 +386,7 @@
 			// gratingOrder
 			// 
 			this.gratingOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.gratingOrder.Location = new System.Drawing.Point(170, 241);
+			this.gratingOrder.Location = new System.Drawing.Point(154, 241);
 			this.gratingOrder.Maximum = new decimal(new int[] {
             6,
             0,
@@ -387,7 +399,7 @@
             0});
 			this.gratingOrder.Name = "gratingOrder";
 			this.gratingOrder.Size = new System.Drawing.Size(47, 32);
-			this.gratingOrder.TabIndex = 39;
+			this.gratingOrder.TabIndex = 6;
 			this.gratingOrder.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.gratingOrder.Value = new decimal(new int[] {
             5,
@@ -402,47 +414,51 @@
 			this.convertButton.Location = new System.Drawing.Point(346, 382);
 			this.convertButton.Name = "convertButton";
 			this.convertButton.Size = new System.Drawing.Size(100, 34);
-			this.convertButton.TabIndex = 38;
+			this.convertButton.TabIndex = 8;
 			this.convertButton.Text = "Convert";
 			this.convertButton.UseVisualStyleBackColor = true;
 			// 
 			// dyeCounterInput
 			// 
 			this.dyeCounterInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dyeCounterInput.Location = new System.Drawing.Point(223, 240);
+			this.dyeCounterInput.Location = new System.Drawing.Point(207, 240);
 			this.dyeCounterInput.Name = "dyeCounterInput";
 			this.dyeCounterInput.Size = new System.Drawing.Size(100, 32);
-			this.dyeCounterInput.TabIndex = 32;
+			this.dyeCounterInput.TabIndex = 7;
+			this.dyeCounterInput.Text = "0";
 			// 
 			// freqInput
 			// 
 			this.freqInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.freqInput.Location = new System.Drawing.Point(150, 161);
+			this.freqInput.Location = new System.Drawing.Point(134, 164);
 			this.freqInput.Name = "freqInput";
 			this.freqInput.Size = new System.Drawing.Size(100, 32);
-			this.freqInput.TabIndex = 31;
+			this.freqInput.TabIndex = 4;
+			this.freqInput.Text = "0";
 			// 
 			// nmInput
 			// 
 			this.nmInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.nmInput.Location = new System.Drawing.Point(79, 94);
+			this.nmInput.Location = new System.Drawing.Point(134, 50);
 			this.nmInput.Name = "nmInput";
 			this.nmInput.Size = new System.Drawing.Size(100, 32);
-			this.nmInput.TabIndex = 30;
+			this.nmInput.TabIndex = 1;
+			this.nmInput.Text = "0";
 			// 
 			// cmInput
 			// 
 			this.cmInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cmInput.Location = new System.Drawing.Point(92, 24);
+			this.cmInput.Location = new System.Drawing.Point(134, 88);
 			this.cmInput.Name = "cmInput";
 			this.cmInput.Size = new System.Drawing.Size(100, 32);
-			this.cmInput.TabIndex = 29;
+			this.cmInput.TabIndex = 2;
+			this.cmInput.Text = "0";
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(24, 243);
+			this.label4.Location = new System.Drawing.Point(8, 243);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(140, 26);
 			this.label4.TabIndex = 28;
@@ -452,7 +468,7 @@
 			// 
 			this.freqLabel.AutoSize = true;
 			this.freqLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.freqLabel.Location = new System.Drawing.Point(24, 164);
+			this.freqLabel.Location = new System.Drawing.Point(8, 167);
 			this.freqLabel.Name = "freqLabel";
 			this.freqLabel.Size = new System.Drawing.Size(120, 26);
 			this.freqLabel.TabIndex = 27;
@@ -462,7 +478,7 @@
 			// 
 			this.nmLabel.AutoSize = true;
 			this.nmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.nmLabel.Location = new System.Drawing.Point(24, 97);
+			this.nmLabel.Location = new System.Drawing.Point(79, 53);
 			this.nmLabel.Name = "nmLabel";
 			this.nmLabel.Size = new System.Drawing.Size(49, 26);
 			this.nmLabel.TabIndex = 26;
@@ -472,7 +488,7 @@
 			// 
 			this.cmLabel.AutoSize = true;
 			this.cmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cmLabel.Location = new System.Drawing.Point(24, 27);
+			this.cmLabel.Location = new System.Drawing.Point(66, 91);
 			this.cmLabel.Name = "cmLabel";
 			this.cmLabel.Size = new System.Drawing.Size(62, 26);
 			this.cmLabel.TabIndex = 25;
@@ -482,6 +498,63 @@
 			// 
 			this.convertWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.convertWorker_DoWork);
 			this.convertWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.convertWorker_RunWorkerCompleted);
+			// 
+			// mjLabel
+			// 
+			this.mjLabel.AutoSize = true;
+			this.mjLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.mjLabel.Location = new System.Drawing.Point(80, 15);
+			this.mjLabel.Name = "mjLabel";
+			this.mjLabel.Size = new System.Drawing.Size(48, 26);
+			this.mjLabel.TabIndex = 40;
+			this.mjLabel.Text = "mJ:";
+			// 
+			// evLabel
+			// 
+			this.evLabel.AutoSize = true;
+			this.evLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.evLabel.Location = new System.Drawing.Point(83, 129);
+			this.evLabel.Name = "evLabel";
+			this.evLabel.Size = new System.Drawing.Size(45, 26);
+			this.evLabel.TabIndex = 41;
+			this.evLabel.Text = "eV:";
+			// 
+			// kcalLabel
+			// 
+			this.kcalLabel.AutoSize = true;
+			this.kcalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.kcalLabel.Location = new System.Drawing.Point(29, 205);
+			this.kcalLabel.Name = "kcalLabel";
+			this.kcalLabel.Size = new System.Drawing.Size(99, 26);
+			this.kcalLabel.TabIndex = 42;
+			this.kcalLabel.Text = "kcal/mol:";
+			// 
+			// mjInput
+			// 
+			this.mjInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.mjInput.Location = new System.Drawing.Point(134, 12);
+			this.mjInput.Name = "mjInput";
+			this.mjInput.Size = new System.Drawing.Size(100, 32);
+			this.mjInput.TabIndex = 0;
+			this.mjInput.Text = "0";
+			// 
+			// eVInput
+			// 
+			this.eVInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.eVInput.Location = new System.Drawing.Point(134, 126);
+			this.eVInput.Name = "eVInput";
+			this.eVInput.Size = new System.Drawing.Size(100, 32);
+			this.eVInput.TabIndex = 3;
+			this.eVInput.Text = "0";
+			// 
+			// kcalInput
+			// 
+			this.kcalInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.kcalInput.Location = new System.Drawing.Point(134, 202);
+			this.kcalInput.Name = "kcalInput";
+			this.kcalInput.Size = new System.Drawing.Size(100, 32);
+			this.kcalInput.TabIndex = 5;
+			this.kcalInput.Text = "0";
 			// 
 			// vibrationalForm
 			// 
@@ -544,6 +617,12 @@
 		private System.Windows.Forms.TextBox cmInput;
 		private System.Windows.Forms.NumericUpDown gratingOrder;
 		private System.ComponentModel.BackgroundWorker convertWorker;
+		private System.Windows.Forms.TextBox kcalInput;
+		private System.Windows.Forms.TextBox eVInput;
+		private System.Windows.Forms.TextBox mjInput;
+		private System.Windows.Forms.Label kcalLabel;
+		private System.Windows.Forms.Label evLabel;
+		private System.Windows.Forms.Label mjLabel;
 	}
 }
 
