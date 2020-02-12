@@ -47,6 +47,12 @@
 			this.omega2Label = new System.Windows.Forms.Label();
 			this.targetLabel = new System.Windows.Forms.Label();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.kcalInput = new System.Windows.Forms.TextBox();
+			this.eVInput = new System.Windows.Forms.TextBox();
+			this.mjInput = new System.Windows.Forms.TextBox();
+			this.kcalLabel = new System.Windows.Forms.Label();
+			this.evLabel = new System.Windows.Forms.Label();
+			this.mjLabel = new System.Windows.Forms.Label();
 			this.gratingOrder = new System.Windows.Forms.NumericUpDown();
 			this.convertButton = new System.Windows.Forms.Button();
 			this.dyeCounterInput = new System.Windows.Forms.TextBox();
@@ -58,12 +64,6 @@
 			this.nmLabel = new System.Windows.Forms.Label();
 			this.cmLabel = new System.Windows.Forms.Label();
 			this.convertWorker = new System.ComponentModel.BackgroundWorker();
-			this.mjLabel = new System.Windows.Forms.Label();
-			this.evLabel = new System.Windows.Forms.Label();
-			this.kcalLabel = new System.Windows.Forms.Label();
-			this.mjInput = new System.Windows.Forms.TextBox();
-			this.eVInput = new System.Windows.Forms.TextBox();
-			this.kcalInput = new System.Windows.Forms.TextBox();
 			this.tabController.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.v1MinInput)).BeginInit();
@@ -383,6 +383,63 @@
 			this.tabPage2.Text = "Conversions";
 			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
+			// kcalInput
+			// 
+			this.kcalInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.kcalInput.Location = new System.Drawing.Point(134, 202);
+			this.kcalInput.Name = "kcalInput";
+			this.kcalInput.Size = new System.Drawing.Size(100, 32);
+			this.kcalInput.TabIndex = 5;
+			this.kcalInput.Text = "0";
+			// 
+			// eVInput
+			// 
+			this.eVInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.eVInput.Location = new System.Drawing.Point(134, 126);
+			this.eVInput.Name = "eVInput";
+			this.eVInput.Size = new System.Drawing.Size(100, 32);
+			this.eVInput.TabIndex = 3;
+			this.eVInput.Text = "0";
+			// 
+			// mjInput
+			// 
+			this.mjInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.mjInput.Location = new System.Drawing.Point(134, 12);
+			this.mjInput.Name = "mjInput";
+			this.mjInput.Size = new System.Drawing.Size(100, 32);
+			this.mjInput.TabIndex = 0;
+			this.mjInput.Text = "0";
+			// 
+			// kcalLabel
+			// 
+			this.kcalLabel.AutoSize = true;
+			this.kcalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.kcalLabel.Location = new System.Drawing.Point(29, 205);
+			this.kcalLabel.Name = "kcalLabel";
+			this.kcalLabel.Size = new System.Drawing.Size(99, 26);
+			this.kcalLabel.TabIndex = 42;
+			this.kcalLabel.Text = "kcal/mol:";
+			// 
+			// evLabel
+			// 
+			this.evLabel.AutoSize = true;
+			this.evLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.evLabel.Location = new System.Drawing.Point(83, 129);
+			this.evLabel.Name = "evLabel";
+			this.evLabel.Size = new System.Drawing.Size(45, 26);
+			this.evLabel.TabIndex = 41;
+			this.evLabel.Text = "eV:";
+			// 
+			// mjLabel
+			// 
+			this.mjLabel.AutoSize = true;
+			this.mjLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.mjLabel.Location = new System.Drawing.Point(80, 15);
+			this.mjLabel.Name = "mjLabel";
+			this.mjLabel.Size = new System.Drawing.Size(48, 26);
+			this.mjLabel.TabIndex = 40;
+			this.mjLabel.Text = "mJ:";
+			// 
 			// gratingOrder
 			// 
 			this.gratingOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -498,63 +555,6 @@
 			// 
 			this.convertWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.convertWorker_DoWork);
 			this.convertWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.convertWorker_RunWorkerCompleted);
-			// 
-			// mjLabel
-			// 
-			this.mjLabel.AutoSize = true;
-			this.mjLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.mjLabel.Location = new System.Drawing.Point(80, 15);
-			this.mjLabel.Name = "mjLabel";
-			this.mjLabel.Size = new System.Drawing.Size(48, 26);
-			this.mjLabel.TabIndex = 40;
-			this.mjLabel.Text = "mJ:";
-			// 
-			// evLabel
-			// 
-			this.evLabel.AutoSize = true;
-			this.evLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.evLabel.Location = new System.Drawing.Point(83, 129);
-			this.evLabel.Name = "evLabel";
-			this.evLabel.Size = new System.Drawing.Size(45, 26);
-			this.evLabel.TabIndex = 41;
-			this.evLabel.Text = "eV:";
-			// 
-			// kcalLabel
-			// 
-			this.kcalLabel.AutoSize = true;
-			this.kcalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.kcalLabel.Location = new System.Drawing.Point(29, 205);
-			this.kcalLabel.Name = "kcalLabel";
-			this.kcalLabel.Size = new System.Drawing.Size(99, 26);
-			this.kcalLabel.TabIndex = 42;
-			this.kcalLabel.Text = "kcal/mol:";
-			// 
-			// mjInput
-			// 
-			this.mjInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.mjInput.Location = new System.Drawing.Point(134, 12);
-			this.mjInput.Name = "mjInput";
-			this.mjInput.Size = new System.Drawing.Size(100, 32);
-			this.mjInput.TabIndex = 0;
-			this.mjInput.Text = "0";
-			// 
-			// eVInput
-			// 
-			this.eVInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.eVInput.Location = new System.Drawing.Point(134, 126);
-			this.eVInput.Name = "eVInput";
-			this.eVInput.Size = new System.Drawing.Size(100, 32);
-			this.eVInput.TabIndex = 3;
-			this.eVInput.Text = "0";
-			// 
-			// kcalInput
-			// 
-			this.kcalInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.kcalInput.Location = new System.Drawing.Point(134, 202);
-			this.kcalInput.Name = "kcalInput";
-			this.kcalInput.Size = new System.Drawing.Size(100, 32);
-			this.kcalInput.TabIndex = 5;
-			this.kcalInput.Text = "0";
 			// 
 			// vibrationalForm
 			// 
