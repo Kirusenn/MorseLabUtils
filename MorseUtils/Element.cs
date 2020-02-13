@@ -1,26 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MorseUtils {
 	class Element {
 		private String symbol;
-		private double average_mass;
-		private LinkedList<KeyValuePair<double, double>> isotopes;
+		private double averageMass;
+		private Dictionary<string, double> isotopes;
 
-		protected Element() {
-			try {
-				using (StreamReader reader = new StreamReader("ATOMIC_ISOTOPES.csv")) {
-					while (!reader.EndOfStream) {
+		public Element(String symbol, double averageMass) {
+			this.Symbol = symbol;
+			this.AverageMass = averageMass;
+			Isotopes = new Dictionary<string, double>();
+		}
 
-					}
-				}
-			} catch (Exception e) {
-				// TODO
+		public string Symbol { get => symbol; set => symbol = value; }
+		public double AverageMass { get => averageMass; set => averageMass = value; }
+		public Dictionary<string, double> Isotopes { get => isotopes; set => isotopes = value; }
+
+		public bool AddIsotope(double mass, double abundance) {
+			if (Isotopes.ContainsKey(mass.ToString())) {
+				return false;
 			}
+			Isotopes.Add(mass.ToString(), abundance);
+			return true;
 		}
 	}
 }

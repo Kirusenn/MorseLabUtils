@@ -81,7 +81,7 @@ namespace MorseUtils {
 				foreach (TextBox box in convertBoxes) {
 					boxValues.Add(double.Parse(box.Text));
 
-					convertWorker.RunWorkerAsync(new Tuple<int, List<double>(senderIndex, boxValues));
+					convertWorker.RunWorkerAsync(new Tuple<int, List<double>>(senderIndex, boxValues));
 				}
 			} catch (Exception exc) {
 				if (exc is FormatException) {
