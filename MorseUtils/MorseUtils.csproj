@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbundanceCalculator.cs" />
     <Compile Include="ElementList.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="Converter.cs" />
