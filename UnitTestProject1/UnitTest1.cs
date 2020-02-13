@@ -8,7 +8,7 @@ namespace UnitTestProject1 {
 		ElementList elements = new ElementList();
 
 		[TestMethod]
-		public void TestMethod1() {
+		public void CarbonIsotopesTest() {
 			Dictionary<double, double> cIsotopes = elements.GetElement("c").Isotopes;
 			double c12Abundance;
 			double c13Abundance;
@@ -26,11 +26,11 @@ namespace UnitTestProject1 {
 		}
 
 		[TestMethod]
-		public void TestMethod2() {
+		public void CarbonAbundanceTest() {
 			Element[] carbon = new Element[1];
 			carbon[0] = elements.GetElement("C");
 			Dictionary<double, double> masses = AbundanceCalculator.Calculate(carbon);
-			Assert.IsTrue(masses.Keys.Count == 3);
+			Assert.IsTrue(masses.Keys.Count == 5);
 
 			double totalAbundance = 0;
 			foreach(KeyValuePair<double, double> mass in masses) {
