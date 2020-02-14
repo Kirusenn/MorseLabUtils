@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace MorseUtils {
 	public static class AbundanceCalculator {
@@ -23,13 +24,13 @@ namespace MorseUtils {
 				Element e1 = elements[a1];
 				// Iterate through first element's isotopes
 				foreach (KeyValuePair<double, double> i1 in e1.Isotopes) {
-					
+
 					// Iterate through second array
 					for (int a2 = 0; a2 < elementsCopy.Length; a2++) {
 						Element e2 = elements[a2];
 						// Iterate through second element's isotopes
 						foreach (KeyValuePair<double, double> i2 in e2.Isotopes) {
-							
+
 							// Combine current isotopes
 							double mass = i1.Key + i2.Key;
 							double abundance = i1.Value * i2.Value;
@@ -76,12 +77,37 @@ namespace MorseUtils {
 		}
 
 		/// <summary>
-		/// Alternative method that assumes approximate isotopes are wanted
+		/// Overload that assumes approximate isotopes are wanted
 		/// </summary>
 		/// <param name="elements">Array of Elements to calculate mass abundances for</param>
 		/// <returns></returns>
 		public static Dictionary<double, double> Calculate(Element[] elements) {
 			return Calculate(elements, false);
+		}
+
+		/// <summary>
+		/// Overload that parses a string representation of a chemical formula and passes it as an Element[]
+		/// </summary>
+		/// <param name="formula"></param>
+		/// <param name="exact"></param>
+		/// <returns></returns>
+		public static Dictionary<double, double> Calculate(string formula, bool exact, ElementList elist) {
+			string[] elementNames = Regex.Split(formula, @"(?<!^)(?=[A-Z])");
+			Element[] elements = new Element[elementNames.Length];
+			for (int e = 0; e < elementNames.Length; e++) {
+				elements[e] = elist.GetElement(elementNames[e]);
+			}
+			return Calculate(elements, exact);
+		}
+
+		/// <summary>
+		/// Overload that parses a string representation of a chemical formula and passes it as an Element[], assuming exact==false
+		/// </summary>
+		/// <param name="formula"></param>
+		/// <param name="elist"></param>
+		/// <returns></returns>
+		public static Dictionary<double, double> Calculate(string formula, ElementList elist) {
+			return Calculate(formula, false, elist);
 		}
 	}
 }
