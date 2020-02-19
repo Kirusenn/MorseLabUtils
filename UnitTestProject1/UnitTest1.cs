@@ -27,44 +27,43 @@ namespace UnitTestProject1 {
 		}
 
 		[TestMethod]
-		public void CarbonAbundanceTest() {
+		public void TitaniumAbundanceTest() {
 			Element[] carbon = new Element[1];
-			carbon[0] = elements.GetElement("C");
+			carbon[0] = elements.GetElement("Ti");
 			Dictionary<double, double> masses = AbundanceCalculator.Calculate(carbon);
-			Assert.IsTrue(masses.Keys.Count == 3);
+			Assert.IsTrue(masses.Keys.Count == 5);
 
 			double totalAbundance = 0;
 			foreach(KeyValuePair<double, double> mass in masses) {
 				totalAbundance += mass.Value;
 			}
 
-			Assert.IsTrue(totalAbundance < 1);
+			Assert.IsTrue(totalAbundance <= 1);
 		}
 
 		[TestMethod]
-		public void CarbonAbundanceStringTest() {
-			Dictionary<double, double> masses = AbundanceCalculator.Calculate("C", elements);
-			Assert.IsTrue(masses.Keys.Count == 3);
+		public void TitaniumAbundanceStringTest() {
+			Dictionary<double, double> masses = AbundanceCalculator.Calculate("Ti", elements);
+			Assert.IsTrue(masses.Keys.Count == 5);
 
 			double totalAbundance = 0;
 			foreach (KeyValuePair<double, double> mass in masses) {
 				totalAbundance += mass.Value;
 			}
 
-			Assert.IsTrue(totalAbundance < 1);
+			Assert.IsTrue(totalAbundance <= 1);
 		}
 
 		[TestMethod]
 		public void CarbonBoronAbundanceStringTest() {
 			Dictionary<double, double> masses = AbundanceCalculator.Calculate("CB", elements);
-			Assert.IsTrue(masses.Keys.Count == 9);
-
+			Assert.IsTrue(masses.Count == 3);
 			double totalAbundance = 0;
 			foreach (KeyValuePair<double, double> mass in masses) {
 				totalAbundance += mass.Value;
 			}
 
-			Assert.IsTrue(totalAbundance < 1);
+			Assert.IsTrue(totalAbundance <= 1);
 		}
 	}
 }

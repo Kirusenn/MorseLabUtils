@@ -26,7 +26,7 @@ namespace MorseUtils {
 				foreach (KeyValuePair<double, double> i1 in e1.Isotopes) {
 
 					// Iterate through second array
-					for (int a2 = 0; a2 < elementsCopy.Length; a2++) {
+					for (int a2 = a1+1; a2 < elementsCopy.Length; a2++) {
 						Element e2 = elements[a2];
 						// Iterate through second element's isotopes
 						foreach (KeyValuePair<double, double> i2 in e2.Isotopes) {
