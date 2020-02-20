@@ -25,7 +25,25 @@
 		private void InitializeComponent() {
 			this.calculateWorker = new System.ComponentModel.BackgroundWorker();
 			this.tabController = new System.Windows.Forms.TabControl();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.massesTab = new System.Windows.Forms.TabPage();
+			this.conversionsTab = new System.Windows.Forms.TabPage();
+			this.kcalInput = new System.Windows.Forms.TextBox();
+			this.eVInput = new System.Windows.Forms.TextBox();
+			this.mjInput = new System.Windows.Forms.TextBox();
+			this.kcalLabel = new System.Windows.Forms.Label();
+			this.evLabel = new System.Windows.Forms.Label();
+			this.mjLabel = new System.Windows.Forms.Label();
+			this.gratingOrder = new System.Windows.Forms.NumericUpDown();
+			this.convertButton = new System.Windows.Forms.Button();
+			this.dyeCounterInput = new System.Windows.Forms.TextBox();
+			this.freqInput = new System.Windows.Forms.TextBox();
+			this.nmInput = new System.Windows.Forms.TextBox();
+			this.cmInput = new System.Windows.Forms.TextBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.freqLabel = new System.Windows.Forms.Label();
+			this.nmLabel = new System.Windows.Forms.Label();
+			this.cmLabel = new System.Windows.Forms.Label();
+			this.vibrationalTab = new System.Windows.Forms.TabPage();
 			this.calculateButton = new System.Windows.Forms.Button();
 			this.resultsLabel = new System.Windows.Forms.Label();
 			this.v1MinInput = new System.Windows.Forms.NumericUpDown();
@@ -46,33 +64,16 @@
 			this.rhoLabel = new System.Windows.Forms.Label();
 			this.omega2Label = new System.Windows.Forms.Label();
 			this.targetLabel = new System.Windows.Forms.Label();
-			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.kcalInput = new System.Windows.Forms.TextBox();
-			this.eVInput = new System.Windows.Forms.TextBox();
-			this.mjInput = new System.Windows.Forms.TextBox();
-			this.kcalLabel = new System.Windows.Forms.Label();
-			this.evLabel = new System.Windows.Forms.Label();
-			this.mjLabel = new System.Windows.Forms.Label();
-			this.gratingOrder = new System.Windows.Forms.NumericUpDown();
-			this.convertButton = new System.Windows.Forms.Button();
-			this.dyeCounterInput = new System.Windows.Forms.TextBox();
-			this.freqInput = new System.Windows.Forms.TextBox();
-			this.nmInput = new System.Windows.Forms.TextBox();
-			this.cmInput = new System.Windows.Forms.TextBox();
-			this.label4 = new System.Windows.Forms.Label();
-			this.freqLabel = new System.Windows.Forms.Label();
-			this.nmLabel = new System.Windows.Forms.Label();
-			this.cmLabel = new System.Windows.Forms.Label();
 			this.convertWorker = new System.ComponentModel.BackgroundWorker();
 			this.tabController.SuspendLayout();
-			this.tabPage1.SuspendLayout();
+			this.conversionsTab.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.gratingOrder)).BeginInit();
+			this.vibrationalTab.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.v1MinInput)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.v1MaxInput)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.omega1MinInput)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.incrementInput)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.omega1MaxInput)).BeginInit();
-			this.tabPage2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.gratingOrder)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// calculateWorker
@@ -82,8 +83,9 @@
 			// 
 			// tabController
 			// 
-			this.tabController.Controls.Add(this.tabPage1);
-			this.tabController.Controls.Add(this.tabPage2);
+			this.tabController.Controls.Add(this.massesTab);
+			this.tabController.Controls.Add(this.conversionsTab);
+			this.tabController.Controls.Add(this.vibrationalTab);
 			this.tabController.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabController.Location = new System.Drawing.Point(0, 0);
 			this.tabController.Name = "tabController";
@@ -92,36 +94,240 @@
 			this.tabController.TabIndex = 0;
 			this.tabController.SelectedIndexChanged += new System.EventHandler(this.TabController_SelectedIndexChanged);
 			// 
-			// tabPage1
+			// massesTab
 			// 
-			this.tabPage1.AutoScroll = true;
-			this.tabPage1.Controls.Add(this.calculateButton);
-			this.tabPage1.Controls.Add(this.resultsLabel);
-			this.tabPage1.Controls.Add(this.v1MinInput);
-			this.tabPage1.Controls.Add(this.v1MaxInput);
-			this.tabPage1.Controls.Add(this.omega1MinInput);
-			this.tabPage1.Controls.Add(this.incrementInput);
-			this.tabPage1.Controls.Add(this.omega1IncLabel);
-			this.tabPage1.Controls.Add(this.max2Label);
-			this.tabPage1.Controls.Add(this.min2Label);
-			this.tabPage1.Controls.Add(this.omega1MaxInput);
-			this.tabPage1.Controls.Add(this.max1Label);
-			this.tabPage1.Controls.Add(this.min1Label);
-			this.tabPage1.Controls.Add(this.rhoInput);
-			this.tabPage1.Controls.Add(this.omega2Input);
-			this.tabPage1.Controls.Add(this.targetInput);
-			this.tabPage1.Controls.Add(this.omega1RangeLabel);
-			this.tabPage1.Controls.Add(this.v1RangeLabel);
-			this.tabPage1.Controls.Add(this.rhoLabel);
-			this.tabPage1.Controls.Add(this.omega2Label);
-			this.tabPage1.Controls.Add(this.targetLabel);
-			this.tabPage1.Location = new System.Drawing.Point(4, 22);
-			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(792, 424);
-			this.tabPage1.TabIndex = 0;
-			this.tabPage1.Text = "Vibrational";
-			this.tabPage1.UseVisualStyleBackColor = true;
+			this.massesTab.Location = new System.Drawing.Point(4, 22);
+			this.massesTab.Name = "massesTab";
+			this.massesTab.Padding = new System.Windows.Forms.Padding(3);
+			this.massesTab.Size = new System.Drawing.Size(792, 424);
+			this.massesTab.TabIndex = 2;
+			this.massesTab.Text = "Masses";
+			this.massesTab.UseVisualStyleBackColor = true;
+			// 
+			// conversionsTab
+			// 
+			this.conversionsTab.Controls.Add(this.kcalInput);
+			this.conversionsTab.Controls.Add(this.eVInput);
+			this.conversionsTab.Controls.Add(this.mjInput);
+			this.conversionsTab.Controls.Add(this.kcalLabel);
+			this.conversionsTab.Controls.Add(this.evLabel);
+			this.conversionsTab.Controls.Add(this.mjLabel);
+			this.conversionsTab.Controls.Add(this.gratingOrder);
+			this.conversionsTab.Controls.Add(this.convertButton);
+			this.conversionsTab.Controls.Add(this.dyeCounterInput);
+			this.conversionsTab.Controls.Add(this.freqInput);
+			this.conversionsTab.Controls.Add(this.nmInput);
+			this.conversionsTab.Controls.Add(this.cmInput);
+			this.conversionsTab.Controls.Add(this.label4);
+			this.conversionsTab.Controls.Add(this.freqLabel);
+			this.conversionsTab.Controls.Add(this.nmLabel);
+			this.conversionsTab.Controls.Add(this.cmLabel);
+			this.conversionsTab.Location = new System.Drawing.Point(4, 22);
+			this.conversionsTab.Name = "conversionsTab";
+			this.conversionsTab.Padding = new System.Windows.Forms.Padding(3);
+			this.conversionsTab.Size = new System.Drawing.Size(792, 424);
+			this.conversionsTab.TabIndex = 1;
+			this.conversionsTab.Text = "Conversions";
+			this.conversionsTab.UseVisualStyleBackColor = true;
+			// 
+			// kcalInput
+			// 
+			this.kcalInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.kcalInput.Location = new System.Drawing.Point(134, 202);
+			this.kcalInput.Name = "kcalInput";
+			this.kcalInput.Size = new System.Drawing.Size(100, 32);
+			this.kcalInput.TabIndex = 5;
+			this.kcalInput.Text = "0";
+			// 
+			// eVInput
+			// 
+			this.eVInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.eVInput.Location = new System.Drawing.Point(134, 126);
+			this.eVInput.Name = "eVInput";
+			this.eVInput.Size = new System.Drawing.Size(100, 32);
+			this.eVInput.TabIndex = 3;
+			this.eVInput.Text = "0";
+			// 
+			// mjInput
+			// 
+			this.mjInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.mjInput.Location = new System.Drawing.Point(134, 12);
+			this.mjInput.Name = "mjInput";
+			this.mjInput.Size = new System.Drawing.Size(100, 32);
+			this.mjInput.TabIndex = 0;
+			this.mjInput.Text = "0";
+			// 
+			// kcalLabel
+			// 
+			this.kcalLabel.AutoSize = true;
+			this.kcalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.kcalLabel.Location = new System.Drawing.Point(29, 205);
+			this.kcalLabel.Name = "kcalLabel";
+			this.kcalLabel.Size = new System.Drawing.Size(99, 26);
+			this.kcalLabel.TabIndex = 42;
+			this.kcalLabel.Text = "kcal/mol:";
+			// 
+			// evLabel
+			// 
+			this.evLabel.AutoSize = true;
+			this.evLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.evLabel.Location = new System.Drawing.Point(83, 129);
+			this.evLabel.Name = "evLabel";
+			this.evLabel.Size = new System.Drawing.Size(45, 26);
+			this.evLabel.TabIndex = 41;
+			this.evLabel.Text = "eV:";
+			// 
+			// mjLabel
+			// 
+			this.mjLabel.AutoSize = true;
+			this.mjLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.mjLabel.Location = new System.Drawing.Point(80, 15);
+			this.mjLabel.Name = "mjLabel";
+			this.mjLabel.Size = new System.Drawing.Size(48, 26);
+			this.mjLabel.TabIndex = 40;
+			this.mjLabel.Text = "mJ:";
+			// 
+			// gratingOrder
+			// 
+			this.gratingOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.gratingOrder.Location = new System.Drawing.Point(154, 241);
+			this.gratingOrder.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+			this.gratingOrder.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+			this.gratingOrder.Name = "gratingOrder";
+			this.gratingOrder.Size = new System.Drawing.Size(47, 32);
+			this.gratingOrder.TabIndex = 6;
+			this.gratingOrder.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.gratingOrder.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+			// 
+			// convertButton
+			// 
+			this.convertButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.convertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.convertButton.Location = new System.Drawing.Point(346, 382);
+			this.convertButton.Name = "convertButton";
+			this.convertButton.Size = new System.Drawing.Size(100, 34);
+			this.convertButton.TabIndex = 8;
+			this.convertButton.Text = "Convert";
+			this.convertButton.UseVisualStyleBackColor = true;
+			// 
+			// dyeCounterInput
+			// 
+			this.dyeCounterInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dyeCounterInput.Location = new System.Drawing.Point(207, 240);
+			this.dyeCounterInput.Name = "dyeCounterInput";
+			this.dyeCounterInput.Size = new System.Drawing.Size(100, 32);
+			this.dyeCounterInput.TabIndex = 7;
+			this.dyeCounterInput.Text = "0";
+			// 
+			// freqInput
+			// 
+			this.freqInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.freqInput.Location = new System.Drawing.Point(134, 164);
+			this.freqInput.Name = "freqInput";
+			this.freqInput.Size = new System.Drawing.Size(100, 32);
+			this.freqInput.TabIndex = 4;
+			this.freqInput.Text = "0";
+			// 
+			// nmInput
+			// 
+			this.nmInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.nmInput.Location = new System.Drawing.Point(134, 50);
+			this.nmInput.Name = "nmInput";
+			this.nmInput.Size = new System.Drawing.Size(100, 32);
+			this.nmInput.TabIndex = 1;
+			this.nmInput.Text = "0";
+			// 
+			// cmInput
+			// 
+			this.cmInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cmInput.Location = new System.Drawing.Point(134, 88);
+			this.cmInput.Name = "cmInput";
+			this.cmInput.Size = new System.Drawing.Size(100, 32);
+			this.cmInput.TabIndex = 2;
+			this.cmInput.Text = "0";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Location = new System.Drawing.Point(8, 243);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(140, 26);
+			this.label4.TabIndex = 28;
+			this.label4.Text = "Dye Counter:";
+			// 
+			// freqLabel
+			// 
+			this.freqLabel.AutoSize = true;
+			this.freqLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.freqLabel.Location = new System.Drawing.Point(8, 167);
+			this.freqLabel.Name = "freqLabel";
+			this.freqLabel.Size = new System.Drawing.Size(120, 26);
+			this.freqLabel.TabIndex = 27;
+			this.freqLabel.Text = "Frequency:";
+			// 
+			// nmLabel
+			// 
+			this.nmLabel.AutoSize = true;
+			this.nmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.nmLabel.Location = new System.Drawing.Point(79, 53);
+			this.nmLabel.Name = "nmLabel";
+			this.nmLabel.Size = new System.Drawing.Size(49, 26);
+			this.nmLabel.TabIndex = 26;
+			this.nmLabel.Text = "nm:";
+			// 
+			// cmLabel
+			// 
+			this.cmLabel.AutoSize = true;
+			this.cmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cmLabel.Location = new System.Drawing.Point(66, 91);
+			this.cmLabel.Name = "cmLabel";
+			this.cmLabel.Size = new System.Drawing.Size(62, 26);
+			this.cmLabel.TabIndex = 25;
+			this.cmLabel.Text = "cm⁻¹:";
+			// 
+			// vibrationalTab
+			// 
+			this.vibrationalTab.AutoScroll = true;
+			this.vibrationalTab.Controls.Add(this.calculateButton);
+			this.vibrationalTab.Controls.Add(this.resultsLabel);
+			this.vibrationalTab.Controls.Add(this.v1MinInput);
+			this.vibrationalTab.Controls.Add(this.v1MaxInput);
+			this.vibrationalTab.Controls.Add(this.omega1MinInput);
+			this.vibrationalTab.Controls.Add(this.incrementInput);
+			this.vibrationalTab.Controls.Add(this.omega1IncLabel);
+			this.vibrationalTab.Controls.Add(this.max2Label);
+			this.vibrationalTab.Controls.Add(this.min2Label);
+			this.vibrationalTab.Controls.Add(this.omega1MaxInput);
+			this.vibrationalTab.Controls.Add(this.max1Label);
+			this.vibrationalTab.Controls.Add(this.min1Label);
+			this.vibrationalTab.Controls.Add(this.rhoInput);
+			this.vibrationalTab.Controls.Add(this.omega2Input);
+			this.vibrationalTab.Controls.Add(this.targetInput);
+			this.vibrationalTab.Controls.Add(this.omega1RangeLabel);
+			this.vibrationalTab.Controls.Add(this.v1RangeLabel);
+			this.vibrationalTab.Controls.Add(this.rhoLabel);
+			this.vibrationalTab.Controls.Add(this.omega2Label);
+			this.vibrationalTab.Controls.Add(this.targetLabel);
+			this.vibrationalTab.Location = new System.Drawing.Point(4, 22);
+			this.vibrationalTab.Name = "vibrationalTab";
+			this.vibrationalTab.Padding = new System.Windows.Forms.Padding(3);
+			this.vibrationalTab.Size = new System.Drawing.Size(792, 424);
+			this.vibrationalTab.TabIndex = 0;
+			this.vibrationalTab.Text = "Vibrational";
+			this.vibrationalTab.UseVisualStyleBackColor = true;
 			// 
 			// calculateButton
 			// 
@@ -357,200 +563,6 @@
 			this.targetLabel.TabIndex = 24;
 			this.targetLabel.Text = "ν(j)-ν(i):";
 			// 
-			// tabPage2
-			// 
-			this.tabPage2.Controls.Add(this.kcalInput);
-			this.tabPage2.Controls.Add(this.eVInput);
-			this.tabPage2.Controls.Add(this.mjInput);
-			this.tabPage2.Controls.Add(this.kcalLabel);
-			this.tabPage2.Controls.Add(this.evLabel);
-			this.tabPage2.Controls.Add(this.mjLabel);
-			this.tabPage2.Controls.Add(this.gratingOrder);
-			this.tabPage2.Controls.Add(this.convertButton);
-			this.tabPage2.Controls.Add(this.dyeCounterInput);
-			this.tabPage2.Controls.Add(this.freqInput);
-			this.tabPage2.Controls.Add(this.nmInput);
-			this.tabPage2.Controls.Add(this.cmInput);
-			this.tabPage2.Controls.Add(this.label4);
-			this.tabPage2.Controls.Add(this.freqLabel);
-			this.tabPage2.Controls.Add(this.nmLabel);
-			this.tabPage2.Controls.Add(this.cmLabel);
-			this.tabPage2.Location = new System.Drawing.Point(4, 22);
-			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(792, 424);
-			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "Conversions";
-			this.tabPage2.UseVisualStyleBackColor = true;
-			// 
-			// kcalInput
-			// 
-			this.kcalInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.kcalInput.Location = new System.Drawing.Point(134, 202);
-			this.kcalInput.Name = "kcalInput";
-			this.kcalInput.Size = new System.Drawing.Size(100, 32);
-			this.kcalInput.TabIndex = 5;
-			this.kcalInput.Text = "0";
-			// 
-			// eVInput
-			// 
-			this.eVInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.eVInput.Location = new System.Drawing.Point(134, 126);
-			this.eVInput.Name = "eVInput";
-			this.eVInput.Size = new System.Drawing.Size(100, 32);
-			this.eVInput.TabIndex = 3;
-			this.eVInput.Text = "0";
-			// 
-			// mjInput
-			// 
-			this.mjInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.mjInput.Location = new System.Drawing.Point(134, 12);
-			this.mjInput.Name = "mjInput";
-			this.mjInput.Size = new System.Drawing.Size(100, 32);
-			this.mjInput.TabIndex = 0;
-			this.mjInput.Text = "0";
-			// 
-			// kcalLabel
-			// 
-			this.kcalLabel.AutoSize = true;
-			this.kcalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.kcalLabel.Location = new System.Drawing.Point(29, 205);
-			this.kcalLabel.Name = "kcalLabel";
-			this.kcalLabel.Size = new System.Drawing.Size(99, 26);
-			this.kcalLabel.TabIndex = 42;
-			this.kcalLabel.Text = "kcal/mol:";
-			// 
-			// evLabel
-			// 
-			this.evLabel.AutoSize = true;
-			this.evLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.evLabel.Location = new System.Drawing.Point(83, 129);
-			this.evLabel.Name = "evLabel";
-			this.evLabel.Size = new System.Drawing.Size(45, 26);
-			this.evLabel.TabIndex = 41;
-			this.evLabel.Text = "eV:";
-			// 
-			// mjLabel
-			// 
-			this.mjLabel.AutoSize = true;
-			this.mjLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.mjLabel.Location = new System.Drawing.Point(80, 15);
-			this.mjLabel.Name = "mjLabel";
-			this.mjLabel.Size = new System.Drawing.Size(48, 26);
-			this.mjLabel.TabIndex = 40;
-			this.mjLabel.Text = "mJ:";
-			// 
-			// gratingOrder
-			// 
-			this.gratingOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.gratingOrder.Location = new System.Drawing.Point(154, 241);
-			this.gratingOrder.Maximum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-			this.gratingOrder.Minimum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-			this.gratingOrder.Name = "gratingOrder";
-			this.gratingOrder.Size = new System.Drawing.Size(47, 32);
-			this.gratingOrder.TabIndex = 6;
-			this.gratingOrder.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.gratingOrder.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-			// 
-			// convertButton
-			// 
-			this.convertButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.convertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.convertButton.Location = new System.Drawing.Point(346, 382);
-			this.convertButton.Name = "convertButton";
-			this.convertButton.Size = new System.Drawing.Size(100, 34);
-			this.convertButton.TabIndex = 8;
-			this.convertButton.Text = "Convert";
-			this.convertButton.UseVisualStyleBackColor = true;
-			// 
-			// dyeCounterInput
-			// 
-			this.dyeCounterInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dyeCounterInput.Location = new System.Drawing.Point(207, 240);
-			this.dyeCounterInput.Name = "dyeCounterInput";
-			this.dyeCounterInput.Size = new System.Drawing.Size(100, 32);
-			this.dyeCounterInput.TabIndex = 7;
-			this.dyeCounterInput.Text = "0";
-			// 
-			// freqInput
-			// 
-			this.freqInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.freqInput.Location = new System.Drawing.Point(134, 164);
-			this.freqInput.Name = "freqInput";
-			this.freqInput.Size = new System.Drawing.Size(100, 32);
-			this.freqInput.TabIndex = 4;
-			this.freqInput.Text = "0";
-			// 
-			// nmInput
-			// 
-			this.nmInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.nmInput.Location = new System.Drawing.Point(134, 50);
-			this.nmInput.Name = "nmInput";
-			this.nmInput.Size = new System.Drawing.Size(100, 32);
-			this.nmInput.TabIndex = 1;
-			this.nmInput.Text = "0";
-			// 
-			// cmInput
-			// 
-			this.cmInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cmInput.Location = new System.Drawing.Point(134, 88);
-			this.cmInput.Name = "cmInput";
-			this.cmInput.Size = new System.Drawing.Size(100, 32);
-			this.cmInput.TabIndex = 2;
-			this.cmInput.Text = "0";
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(8, 243);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(140, 26);
-			this.label4.TabIndex = 28;
-			this.label4.Text = "Dye Counter:";
-			// 
-			// freqLabel
-			// 
-			this.freqLabel.AutoSize = true;
-			this.freqLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.freqLabel.Location = new System.Drawing.Point(8, 167);
-			this.freqLabel.Name = "freqLabel";
-			this.freqLabel.Size = new System.Drawing.Size(120, 26);
-			this.freqLabel.TabIndex = 27;
-			this.freqLabel.Text = "Frequency:";
-			// 
-			// nmLabel
-			// 
-			this.nmLabel.AutoSize = true;
-			this.nmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.nmLabel.Location = new System.Drawing.Point(79, 53);
-			this.nmLabel.Name = "nmLabel";
-			this.nmLabel.Size = new System.Drawing.Size(49, 26);
-			this.nmLabel.TabIndex = 26;
-			this.nmLabel.Text = "nm:";
-			// 
-			// cmLabel
-			// 
-			this.cmLabel.AutoSize = true;
-			this.cmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cmLabel.Location = new System.Drawing.Point(66, 91);
-			this.cmLabel.Name = "cmLabel";
-			this.cmLabel.Size = new System.Drawing.Size(62, 26);
-			this.cmLabel.TabIndex = 25;
-			this.cmLabel.Text = "cm⁻¹:";
-			// 
 			// convertWorker
 			// 
 			this.convertWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.convertWorker_DoWork);
@@ -567,16 +579,16 @@
 			this.ShowIcon = false;
 			this.Text = "Vibrational Utility";
 			this.tabController.ResumeLayout(false);
-			this.tabPage1.ResumeLayout(false);
-			this.tabPage1.PerformLayout();
+			this.conversionsTab.ResumeLayout(false);
+			this.conversionsTab.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.gratingOrder)).EndInit();
+			this.vibrationalTab.ResumeLayout(false);
+			this.vibrationalTab.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.v1MinInput)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.v1MaxInput)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.omega1MinInput)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.incrementInput)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.omega1MaxInput)).EndInit();
-			this.tabPage2.ResumeLayout(false);
-			this.tabPage2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.gratingOrder)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -584,7 +596,7 @@
 		#endregion
 		private System.ComponentModel.BackgroundWorker calculateWorker;
 		private System.Windows.Forms.TabControl tabController;
-		private System.Windows.Forms.TabPage tabPage1;
+		private System.Windows.Forms.TabPage vibrationalTab;
 		private System.Windows.Forms.Button calculateButton;
 		private System.Windows.Forms.Label resultsLabel;
 		private System.Windows.Forms.NumericUpDown v1MinInput;
@@ -605,7 +617,7 @@
 		private System.Windows.Forms.Label rhoLabel;
 		private System.Windows.Forms.Label omega2Label;
 		private System.Windows.Forms.Label targetLabel;
-		private System.Windows.Forms.TabPage tabPage2;
+		private System.Windows.Forms.TabPage conversionsTab;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label freqLabel;
 		private System.Windows.Forms.Label nmLabel;
@@ -623,6 +635,7 @@
 		private System.Windows.Forms.Label kcalLabel;
 		private System.Windows.Forms.Label evLabel;
 		private System.Windows.Forms.Label mjLabel;
+		private System.Windows.Forms.TabPage massesTab;
 	}
 }
 
