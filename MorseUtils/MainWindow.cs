@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 using System.Windows.Forms;
 
 
 namespace MorseUtils {
-	public partial class vibrationalForm : Form {
+	public partial class utilsWindow : Form {
 		private VibrationalCalculator vibCalc;
 		private List<TextBox> convertBoxes;
-		private double energy;
+		private ElementList elements;
 
-		public vibrationalForm() {
+		public utilsWindow() {
 			InitializeComponent();
-			AcceptButton = calculateButton; //	Default
+			elements = new ElementList();
+			AcceptButton = massesButton; //	Default
 			convertBoxes = new List<TextBox>() { mjInput, nmInput, cmInput, eVInput, freqInput, kcalInput, dyeCounterInput };
 			foreach (TextBox box in convertBoxes) {
 				box.LostFocus += convertBox_Changed;
@@ -69,7 +71,7 @@ namespace MorseUtils {
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void calculateWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
-			resultsLabel.Text = e.Result.ToString();
+			vibrationalResultLabel.Text = e.Result.ToString();
 		}
 
 		private void convertBox_Changed(object sender, System.EventArgs e) {
@@ -109,6 +111,44 @@ namespace MorseUtils {
 		}
 
 		/// <summary>
+		/// Runs when the Calculate Masses button is clicked; passes arguments to the massesWorker
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void massButton_Click(object sender, EventArgs e) {
+			List<object> args = new List<object>();
+			args.Add(massesText.Text);
+			args.Add(exactMasses.Checked);
+
+			massesWorker.RunWorkerAsync(args);
+		}
+
+		/// <summary>
+		/// Asynchronously handles the calculation of mass abundances
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void massesWorker_DoWork(object sender, DoWorkEventArgs e) {
+			List<object> args = e.Argument as List<object>;
+			e.Result = AbundanceCalculator.Calculate((String)args[0], (bool)args[1], elements);
+		}
+
+		/// <summary>
+		/// Writes the mass abundances results to the massesResultLabel
+		/// TODO: Add graphing feature
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void massesWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
+			StringBuilder results = new StringBuilder();
+			Dictionary<double, double> massResults = e.Result as Dictionary<double, double>;
+			foreach (KeyValuePair<double, double> result in massResults) {
+				results.AppendLine("Mass " + result.Key + ": " + Math.Round(result.Value * 100, 2) + "%");
+			}
+			massesResultLabel.Text = results.ToString();
+		}
+
+		/// <summary>
 		/// Handles the SelectedIndexChanged event of the TabController control.
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
@@ -116,10 +156,13 @@ namespace MorseUtils {
 		private void TabController_SelectedIndexChanged(object sender, System.EventArgs e) {
 			switch (tabController.SelectedIndex) {
 				case 0:
-					AcceptButton = calculateButton;
+					AcceptButton = massesButton;
 					break;
 				case 1:
 					AcceptButton = convertButton;
+					break;
+				case 2:
+					AcceptButton = calculateButton;
 					break;
 			}
 		}

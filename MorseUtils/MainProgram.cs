@@ -11,7 +11,7 @@ namespace MorseUtils {
 		static void Main() {
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new vibrationalForm());
+			Application.Run(new utilsWindow());
 		}
 	}
 }

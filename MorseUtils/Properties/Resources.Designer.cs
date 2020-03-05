@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MorseUtils.Properties
-{
-
-
+namespace MorseUtils.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -19,36 +19,33 @@ namespace MorseUtils.Properties
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
-                if ((resourceMan == null))
-                {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MorseUtils.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -60,6 +57,25 @@ namespace MorseUtils.Properties
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to H,1.00794,1.007825032,0.99984426,2.014101778,0.00015574
+        ///He,4.002602,3.01602931,0.000001343,4.00260325,0.999998657
+        ///Li,6.941,6.0151223,0.07589,7.016004,0.92411
+        ///Be,9.012182,9.0121821,1
+        ///B,10.811,10.012937,0.1982,11.0093055,0.8018
+        ///C,12.0107,12,0.988922,13.00335484,0.011078
+        ///N,14.0067,14.00307401,0.996337,15.0001089,0.003663
+        ///O,15.9994,15.99491462,0.997628,16.9991315,0.000372,17.9991604,0.0020004
+        ///F,18.9984032,18.9984032,1
+        ///Ne,20.1797,19.99244018,0.904838,20.99384674,0.002696,21.99138551,0.092465
+        ///Na,22.9897 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ATOMIC_ISOTOPES {
+            get {
+                return ResourceManager.GetString("ATOMIC_ISOTOPES", resourceCulture);
             }
         }
     }
