@@ -12,68 +12,33 @@ namespace MorseUtils {
 		/// <param name="exact">If true, returns exact masses; returns rounded masses otherwise</param>
 		/// <returns></returns>
 		public static Dictionary<double, double> Calculate(Element[] elements, bool exact) {
-			// Create copy of elements to  allow adding every isotope to every other
-			Element[] elementsCopy = new Element[elements.Length];
-			Array.Copy(elements, 0, elementsCopy, 0, elements.Length);
+			List<KeyValuePair<double, double>> isotopes = new List<KeyValuePair<double, double>>();
+			foreach (Element e in elements) {
+				foreach (KeyValuePair<double, double> isotope in e.Isotopes) {
+					if (exact) {
+						isotopes.Add(new KeyValuePair<double, double>(isotope.Key, isotope.Value));
+					} else {
+						isotopes.Add(new KeyValuePair<double, double>(Math.Round(isotope.Key), isotope.Value));
+					}
+				}
+			}
 
 			// Dictionary to store all combined masses in
 			Dictionary<double, double> masses = new Dictionary<double, double>();
 
-			// Iterate through first array
-			for (int a1 = 0; a1 < elements.Length; a1++) {
-				Element e1 = elements[a1];
-				// Iterate through first element's isotopes
-				foreach (KeyValuePair<double, double> i1 in e1.Isotopes) {
+			Recurse(isotopes, masses, 1, isotopes[0].Key, isotopes[0].Value);
 
-					// Iterate through second array
-					for (int a2 = a1+1; a2 < elementsCopy.Length; a2++) {
-						Element e2 = elements[a2];
-						// Iterate through second element's isotopes
-						foreach (KeyValuePair<double, double> i2 in e2.Isotopes) {
-
-							// Combine current isotopes
-							double mass = i1.Key + i2.Key;
-							double abundance = i1.Value * i2.Value;
-
-							// Round if exact is not set
-							if (!exact) {
-								mass = Math.Round(mass);
-							}
-
-							double existingAbundance;
-							// If mass already exists, readd increasing abundance
-							if (masses.TryGetValue(mass, out existingAbundance)) {
-								masses.Remove(mass);
-								masses.Add(mass, existingAbundance + abundance);
-							} else {
-								// Add mass and abundance if not already in masses
-								masses.Add(mass, abundance);
-							}
-						}
-					}
-
-					// Add current isotopes abundance by itself if mass >= 40 (i.e. possibility of seeing monoatomic metal signal)
-					// TODO Possibly weight this and/or isotopic combinations; chance of increasing mass above 100% if monoatomic signal is at same mass as a combination of elements and both are high. More of an issue for polyatomic combinations.
-					double imass = i1.Key;
-					double iabundance = i1.Value;
-					if (!exact) {
-						imass = Math.Round(imass);
-					}
-
-					if (imass >= 40) {
-						double iexistingAbundance;
-						// If mass already exists, readd increasing abundance
-						if (masses.TryGetValue(imass, out iexistingAbundance)) {
-							masses.Remove(imass);
-							masses.Add(imass, iexistingAbundance + iabundance);
-						} else {
-							// Add mass and abundance if not already in masses
-							masses.Add(imass, iabundance);
-						}
-					}
-				}
-			}
 			return masses;
+		}
+
+		private static void Recurse(List<KeyValuePair<double, double>> isotopes, Dictionary<double, double> masses, int start, double mass, double abundance) {
+			KeyValuePair<double, double> currentIsotope = isotopes[start];
+			while (start < isotopes.Count) {
+				Recurse(isotopes, masses, start + 1, mass + isotopes[start].Key, abundance * isotopes[start].Value);
+				masses.Add(mass)
+			}
+			masses.Add(mass, abundance);
+			return;
 		}
 
 		/// <summary>
